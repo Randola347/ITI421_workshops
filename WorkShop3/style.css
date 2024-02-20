@@ -1,0 +1,90 @@
+/* Estilos para el contenido principal */
+main {
+    /* Imagen de fondo */
+    background-image: url('fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Espaciado interno y color del texto */
+    padding: 80px;
+    color: #fdfdfd;
+    /* Configuración de la cuadrícula */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Estilos para los párrafos dentro de main */
+main p {
+    margin-bottom: 15px;
+}
+
+/* Estilos para las barras de navegación */
+nav {
+    /* Fondo de color y color del texto */
+    background-color: #fdfdfd;
+    color: #fefafa;
+    /* Espaciado interno y disposición */
+    padding: 100px;
+    display: flex;
+    justify-content: space-between;
+    /* Imagen de fondo */
+    background-image: url("koenisegg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Estilos para otra barra de navegación con imagen diferente */
+.nav-otra-imagen {
+    /* Fondo de color y color del texto */
+    background-color: #fdfdfd;
+    color: #ffffff;
+    /* Espaciado interno y disposición */
+    padding: 100px;
+    display: flex;
+    justify-content: space-between;
+    /* Imagen de fondo */
+    background-image: url("koenisegg1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Estilos para una barra de navegación con imágenes */
+.nav-con-imagenes {
+    /* Espaciado interno */
+    padding: 60px;
+    /* Imagen de fondo */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Estilos para la imagen izquierda en la barra de navegación con imágenes */
+.imagen-izquierda {
+    /* Ancho y alineación de texto */
+    width: 50%;
+    text-align: left;
+    /* Imagen de fondo */
+    background-size: cover;
+}
+
+/* Estilos para la imagen derecha en la barra de navegación con imágenes */
+.imagen-derecha {
+    /* Ancho y alineación de texto */
+    width: 50%;
+    text-align: right;
+}
+
+/* Estilos para las imágenes dentro de la barra de navegación con imágenes */
+.imagen-izquierda img,
+.imagen-derecha img {
+    max-width: 100%;
+    height: fit-content;
+}
+
+/* Estilos para el título dentro de las barras de navegación */
+nav h1 {
+    margin: 0;
+    color: #fdfdfd;
+}
