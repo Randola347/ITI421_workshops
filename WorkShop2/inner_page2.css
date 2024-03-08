@@ -1,0 +1,28 @@
+body {
+    background-image: url('fondo2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+main {
+    padding: 20px;
+}
+
+nav {
+    background-color: #555;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+nav h1 {
+    margin: 0;
+}
+
+article {
+    margin-bottom: 20px;
+}
+
+article img {
+    max-width: 100%;
+}
