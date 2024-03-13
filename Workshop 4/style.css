@@ -1,0 +1,21 @@
+body {
+    text-align: center;
+    top: 55%;
+}
+
+button {
+    margin-top: 1%;
+    border: 0.5px solid #4f77b4;
+}
+
+#tableClients {
+    margin: 0 auto;
+    width: 40%;
+    border: 1.7px solid #000000;
+}
+
+
+.form-group {
+    margin-bottom: 10px;
+    /* Puedes ajustar el valor según tus preferencias */
+}

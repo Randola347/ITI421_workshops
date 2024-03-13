@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Guardar Clientes</title>
+</head>
+
+<body>
+  <div class="box">
+    <h2>Guardar Datos de Cliente</h2>
+    <form id="clienteForm">
+      <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="lastname" required>
+      </div>
+
+      <div class="form-group">
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="phone" required>
+      </div>
+    </form>
+
+    <button onclick="saveClient()">Guardar Cliente</button>
+    <h2>Clientes</h2>
+    <table id="tableClients">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Teléfono</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="clientList">
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    // Check if clients array exists in LocalStorage
+    let clients = JSON.parse(localStorage.getItem('clients')) || [];
+
+    // Function to save client data in LocalStorage
+    function saveClient() {
+      // Read data from inputs
+      let name = document.getElementById('name').value.trim();
+      let lastname = document.getElementById('lastname').value.trim();
+      let phone = document.getElementById('phone').value.trim();
+
+      // Check if any field is empty
+      if (name === '' || lastname === '' || phone === '') {
+        alert('Por favor, complete todos los campos.');
+        return;
+      }
+
+      // Create new client object
+      let client = {
+        name: name,
+        lastname: lastname,
+        phone: phone
+      };
+
+      // Add client to clients array
+      clients.push(client);
+
+      // Save clients array in LocalStorage
+      localStorage.setItem('clients', JSON.stringify(clients));
+
+      // Clear inputs
+      document.getElementById('name').value = '';
+      document.getElementById('lastname').value = '';
+      document.getElementById('phone').value = '';
+
+      // Display client list
+      displayClientList();
+      alert("Cliente Agregado");
+    }
+
+    // Function to display client list
+    function displayClientList() {
+      let clientList = document.getElementById('clientList');
+      clientList.innerHTML = '';
+
+      for (let i = 0; i < clients.length; i++) {
+        let client = clients[i];
+        let tr = document.createElement('tr');
+
+        let tdName = document.createElement('td');
+        tdName.textContent = client.name;
+
+        let tdLastName = document.createElement('td');
+        tdLastName.textContent = client.lastname;
+
+        let tdPhone = document.createElement('td');
+        tdPhone.textContent = client.phone;
+
+        let tdActions = document.createElement('td');
+        let deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Eliminar';
+        deleteButton.onclick = function () {
+          deleteClient(i);
+        };
+        tdActions.appendChild(deleteButton);
+
+        tr.appendChild(tdName);
+        tr.appendChild(tdLastName);
+        tr.appendChild(tdPhone);
+        tr.appendChild(tdActions);
+
+        clientList.appendChild(tr);
+      }
+    }
+
+    // Function to delete a client
+    function deleteClient(index) {
+      clients.splice(index, 1);
+      localStorage.setItem('clients', JSON.stringify(clients));
+      displayClientList();
+      alert("Cliente Eliminado");
+    }
+
+    // Initial display
+    displayClientList();
+  </script>
+</body>
+
+</html>
